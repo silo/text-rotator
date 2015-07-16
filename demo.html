@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Demo - textrotator</title>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,100' rel='stylesheet' type='text/css'>
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.3.0/animate.css' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="text-rotator.js"></script>
+  <style type="text/css">
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Roboto Slab', serif;
+    background-color: #F5F8FA;
+    color: #66757F;
+    text-align: center;
+  }
+
+  p {
+    font-size: 18px;
+    padding: 20px 0;
+  }
+
+  h1 {
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+
+  .center {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .wrapper {
+    width: 100%;
+    float: left;
+    font-size: 30px;
+    line-height: 30px;
+    padding: 30px;
+    border-bottom: 1px dashed #E1E8ED;
+  }
+
+  .wrapper:first-child {
+    border-top: 1px dashed #E1E8ED;
+  }
+
+  .wrapper .text {
+    text-align: center;
+    display: inline;
+  }
+
+  .wrapper .text a {
+    color: #2c3e50;
+  }
+
+  .brown {
+    color: #795548;
+  }
+
+  .red {
+    color: #E91E63;
+  }
+
+  .yellow {
+    color: #FFEB3B;
+  }
+
+  .blue {
+    color: #03A9F4;
+  }
+
+  .green {
+    color: #8BC34A;
+  }
+
+  .pink {
+    color: #F44336;
+  }
+  </style>
+</head>
+
+<body>
+  <a href="https://github.com/silo/text-rotator"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+  <div class="main">
+    <div class="center">
+      <h1>This is a demo of text rotator</h1>
+      <p>Tutorial on the way :)</p>
+      <div class="wrapper">
+        I like
+        <div class="text test1"><span class="brown">Toast</span>, <span class="pink">Candy</span>, <span class="green">Turtles</span>, <span class="red">Ketchup</span>, <span class="yellow">Banana</span>, <span class="blue">Baby pandas</span></div>
+      </div>
+      <div class="wrapper">
+        <div class="text test2">See what i did here, Do you like this?, <a href="#">I can be a link</a></div>
+      </div>
+      <div class="wrapper">
+        I have these options:
+        <div class="text test3">Random loop, Normal Loop, Speed configuration, Animation In, Animation Out, Seperator</div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+  $(".test1").textRotator({
+    separator: ",",
+    speed: 2000,
+    animationIn: 'flipInX',
+    animationOut: 'flipOutX'
+  });
+
+  $(".test2").textRotator({
+    separator: ",",
+    speed: 4000,
+    animationIn: 'bounceInLeft',
+    animationOut: 'bounceOutRight',
+    type: 'random'
+  });
+  $(".test3").textRotator({
+    separator: ",",
+    speed: 7000,
+    animationIn: 'fadeIn',
+    animationOut: 'fadeOut',
+    type: 'random'
+  });
+  </script>
+</body>
+
+</html>
