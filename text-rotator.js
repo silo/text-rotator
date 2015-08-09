@@ -34,30 +34,33 @@ $.fn.textRotator = function(options) {
       // if there is both animation out and in //
       if (settings.animationIn != settings.animationOut) {
         el.html(randomText)
-          .removeClass('animated ' + settings.animationOut)
-          .addClass('animated ' + settings.animationIn)
-            .delay(settings.speed / 2)
-              .queue(function() {
-                $(this).removeClass('animated ' + settings.animationIn)
-                $(this).addClass('animated ' + settings.animationOut)
-                $(this).dequeue();
-              });
+          .removeClass().addClass('animated ' + settings.animationIn)
+          .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+            $(this).delay(settings.speed / 2).queue(function() {
+              $(this).removeClass();
+              $(this).addClass('animated ' + settings.animationOut);
+              $(this).dequeue();
+            });
+          });
       }
+
       // if its the same animation //
       if (settings.animationIn == settings.animationOut) {
         el.html(randomText)
         .addClass('animated ' + settings.animationIn)
-          .delay(settings.speed / 2)
+        .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+         $(this).delay(settings.speed / 2)
             .queue(function() {
               $(this).removeClass('animated ' + settings.animationIn)
               $(this).dequeue();
             });
+        });
       }
 
     };
-
-    setInterval(getMyText, settings.speed);
     getMyText();
+    setInterval(getMyText, settings.speed);
+
   });
 
 };
